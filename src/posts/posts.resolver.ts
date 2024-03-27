@@ -11,8 +11,9 @@ import { PostsService } from './posts.service';
 import { Image } from './models/image.model';
 import { Author } from 'src/authors/models/author.model';
 import { AuthorsService } from 'src/authors/authors.service';
+import { Tag } from './models/tag.model';
 
-@Resolver(of => Post)
+@Resolver((of) => Post)
 export class PostsResolver {
   constructor(
     private postsService: PostsService,
@@ -23,6 +24,12 @@ export class PostsResolver {
   async getImages(@Parent() post: Post): Promise<any[]> {
     const { imageIds } = post;
     return imageIds.map((imageId) => ({ __typename: 'Image', id: imageId }));
+  }
+
+  @ResolveField('tags', (returns) => [Tag])
+  async getTags(@Parent() post: Post): Promise<any[]> {
+    const { tagIds } = post;
+    return tagIds.map((tagId) => ({ __typename: 'Tag', id: tagId }));
   }
 
   @ResolveField('author', (returns) => Author)

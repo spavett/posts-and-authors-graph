@@ -10,6 +10,7 @@ export class PostsService {
       title: 'NestJS is awesome!',
       votes: 0,
       imageIds: ['1', '2'],
+      tagIds: [1, 2],
     },
     {
       id: 2,
@@ -17,6 +18,7 @@ export class PostsService {
       title: 'GraphQL is awesome!',
       votes: 0,
       imageIds: ['1', '2'],
+      tagIds: [2, 3],
     },
   ];
 

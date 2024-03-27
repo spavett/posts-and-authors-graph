@@ -15,12 +15,18 @@ type Post {
   title: String!
   votes: Int
   imageIds: [ID!]
+  tagIds: [Int!]
   images: [Image!]!
+  tags: [Tag!]!
   author: Author!
 }
 
 type Image {
   id: ID!
+}
+
+type Tag {
+  id: Int!
 }
 
 type Query {
